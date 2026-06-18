@@ -41,10 +41,10 @@
         transform:translateY(-3px);
     }
 
-    .about-img{
-        filter: grayscale(100%) brightness(85%);
-        transition: all .8s ease;
-    }
+     .about-img{
+    object-fit: contain;
+    transition: all .8s ease;
+}
 
     .about-img:hover{
         filter: grayscale(0%) brightness(100%);
@@ -130,10 +130,10 @@
 
         <div class="bg-white p-4 rounded-[30px] shadow-xl">
 
-            <img
+           <img
                 src="images/lily.jpg"
                 alt="Foto Profil"
-                class="rounded-3xl w-full h-[500px] object-cover about-img">
+                class="rounded-3xl w-full h-auto about-img">
 
             <div class="text-center mt-5">
 
