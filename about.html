@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Me</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+    body{
+        font-family:'Poppins',sans-serif;
+    }
+
+    .floating{
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float{
+        0%{transform:translateY(0);}
+        50%{transform:translateY(-12px);}
+        100%{transform:translateY(0);}
+    }
+
+    .profile-card{
+        transition:.4s;
+    }
+
+    .profile-card:hover{
+        transform:scale(1.03);
+    }
+
+    .interest{
+        transition:.3s;
+    }
+
+    .interest:hover{
+        transform:translateY(-3px);
+    }
+
+    .about-img{
+        filter: grayscale(100%) brightness(85%);
+        transition: all .8s ease;
+    }
+
+    .about-img:hover{
+        filter: grayscale(0%) brightness(100%);
+        transform: scale(1.03);
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <a href="index.html"
+               class="text-2xl md:text-3xl font-serif text-[#705D8A] hover:opacity-80 transition">
+                🌷 Offllyy_
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-2">
+
+                <a href="index.html"
+                class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                    🏡 Home
+                </a>
+
+                <a href="about.html"
+                class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                    👩‍🎓 About
+                </a>
+
+                <a href="projects.html"
+                class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                    💻 Projects
+                </a>
+
+                <a href="guestbook.html"
+                class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                    🎵 Song
+                </a>
+
+                <a href="login.html"
+                class="bg-[#8D7AA8] text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+                    🔒 Admin Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] flex justify-center items-center p-8 relative overflow-hidden">
+
+<div class="absolute top-20 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-3xl floating"></div>
+
+<div class="absolute bottom-20 right-20 w-52 h-52 bg-pink-200/20 rounded-full blur-3xl floating"></div>
+
+<div class="max-w-5xl w-full bg-white/70 backdrop-blur-xl border border-purple-100 rounded-[40px] shadow-2xl p-10 relative z-10">
+
+    <div class="text-center mb-10">
+
+        <h1 class="text-5xl md:text-6xl font-serif text-[#705D8A]">
+            🌷 About Me
+        </h1>
+
+        <p class="text-gray-500 italic mt-3">
+            a little introduction about myself ☁️
+        </p>
+
+    </div>
+
+ <div class="grid lg:grid-cols-2 gap-8 items-start">
+
+    <!-- KIRI -->
+    <div class="space-y-6">
+
+        <div class="bg-white p-4 rounded-[30px] shadow-xl">
+
+            <img
+                src="images/lily.jpg"
+                alt="Foto Profil"
+                class="rounded-3xl w-full h-[500px] object-cover about-img">
+
+            <div class="text-center mt-5">
+
+                <h2 class="text-3xl font-serif text-[#705D8A]">
+                    Sely 👩‍🎓
+                </h2>
+
+                <p class="text-gray-500 mt-2">
+                    Student • Web Developer • UI Designer
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                💻 My Skills
+            </h3>
+
+            <div class="space-y-4">
+
+                <div>
+                    <div class="flex justify-between">
+                        <span>HTML & CSS</span>
+                        <span>90%</span>
+                    </div>
+
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between">
+                        <span>JavaScript</span>
+                        <span>80%</span>
+                    </div>
+
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[80%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between">
+                        <span>Flutter</span>
+                        <span>88%</span>
+                    </div>
+
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[80%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between">
+                        <span>Laravel</span>
+                        <span>70%</span>
+                    </div>   
+                    
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[80%]"></div>
+                    </div>
+                </div>
+
+                 <div>
+                    <div class="flex justify-between">
+                        <span>PHP</span>
+                        <span>85%</span>
+                    </div> 
+                
+
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[75%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between">
+                        <span>Java</span>
+                        <span>65%</span>
+                    </div> 
+                
+
+                    <div class="h-3 bg-purple-100 rounded-full mt-2">
+                        <div class="h-3 bg-[#8D7AA8] rounded-full w-[75%]"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                💌 Contact Me
+            </h3>
+
+            <div class="space-y-3">
+
+                <a href="https://wa.me/62881023321693"
+                   target="_blank"
+                   class="block bg-[#F3E9FF] p-3 rounded-2xl hover:scale-[1.02] transition">
+
+                    💬 WhatsApp
+
+                </a>
+
+                <a href="mailto:sellypermatasari15@gmail.com"
+                   class="block bg-[#F3E9FF] p-3 rounded-2xl hover:scale-[1.02] transition">
+
+                    📧 Email
+
+                </a>
+
+                <a href="https://maps.google.com/?q=Sumedang"
+                   target="_blank"
+                   class="block bg-[#F3E9FF] p-3 rounded-2xl hover:scale-[1.02] transition">
+
+                    📍 Sumedang
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gradient-to-r from-[#FDF8FF] to-[#F6F0FF] border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="font-semibold text-[#705D8A] mb-3">
+                🌙 Current Status
+            </h3>
+
+            <p class="text-gray-600">
+                Currently listening to music and building cute websites ☁️🎵
+            </p>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <p class="italic text-center text-gray-500">
+                "Still learning, still growing, still debugging." 💜
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- KANAN -->
+    <div class="space-y-6">
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h2 class="text-3xl font-serif text-[#705D8A] mb-4">
+                Hi, I'm Sely 💬
+            </h2>
+
+            <p class="leading-8 text-gray-600">
+Hai, perkenalkan aku si anak PPLG alias anak IT 😄
+Aku punya cukup banyak experience dan wawasan di dunia teknologi, karena selama pembelajaran aku sering dapat tugas project yang bikin aku terus ngulik dan belajar hal baru.<br>
+
+<br>Mulai dari game sederhana pakai GDevelop, lalu masuk ke Web Development di VS Code pakai HTML, CSS, Tailwind, PHP, sampai database MySQL. Aku juga pernah nyentuh dunia mobile dan software development seperti Android Studio, NetBeans Java, Flutter, sampai Firebase untuk backend dan authentication.<br>
+
+<br>Dari semua itu, aku jadi terbiasa ngadepin error, logic, dan juga UI design. Sekarang aku lagi fokus berkembang di bidang Web Development dan UI/UX Design, sambil terus upgrade skill dari setiap project yang aku kerjain.
+
+            </p>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                💜 Things I Love
+            </h3>
+
+            <div class="flex flex-wrap gap-3">
+
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">💻 Coding</span>
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">🎨 UI Design</span>
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">🎵 Music</span>
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">🌯 Risol Mayo</span>
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">🌷 Flowers</span>
+                <span class="bg-[#F3E9FF] px-4 py-2 rounded-xl">📱 Flutter</span>
+
+            </div>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                🌸 Fun Facts
+            </h3>
+
+            <ul class="space-y-2 text-gray-600">
+                <li>🌙 Produktif saat malam</li>
+                <li>🎵 Coding sambil musik</li>
+                <li>🐈 Pecinta kucing</li>
+                <li>💜 Suka warna lavender</li>
+                <li>🌯 Fav Risoles</li>
+            </ul>
+
+        </div>
+
+        <div class="bg-white border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                🎯 Current Goals
+            </h3>
+
+            <ul class="space-y-2 text-gray-600">
+                <li>✨ Front-End Developer</li>
+                <li>📱 Flutter Expert</li>
+                <li>🌐 Build useful websites</li>
+                <li>🚀 Bigger projects</li>
+            </ul>
+
+        </div>
+
+        <div class="bg-gradient-to-r from-[#FDF8FF] to-[#F6F0FF] border border-purple-100 rounded-3xl p-6">
+
+            <h3 class="text-xl font-semibold text-[#705D8A] mb-4">
+                ⭐ My Favorites
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3">
+
+                <div class="bg-white p-4 rounded-2xl">🎵 Music</div>
+                <div class="bg-white p-4 rounded-2xl">☕ Coffee</div>
+                <div class="bg-white p-4 rounded-2xl">🐈 Cats</div>
+                <div class="bg-white p-4 rounded-2xl">🌷 Flowers</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="text-center mt-10">
+
+        <a href="index.html"
+           class="bg-[#8D7AA8] text-white px-6 py-3 rounded-2xl shadow">
+            ← Back Home
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+ <!-- MUSIC WIDGET -->
+
+<div class="fixed bottom-5 right-5 z-50">
+
+    <button
+        id="musicBtn"
+        class="w-14 h-14 rounded-full bg-[#8D7AA8] text-white shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition">
+
+        🎵
+
+    </button>
+
+    <div
+        id="musicPanel"
+        class="hidden absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-xl border border-purple-100 rounded-3xl shadow-xl p-5">
+
+        <h3 class="text-[#705D8A] font-semibold text-2xl mb-4">
+            🐈 Music Player
+        </h3>
+
+        <button
+            id="toggleMusic"
+            class="w-full bg-[#A18BC4] hover:bg-[#8D7AA8] text-white py-3 rounded-2xl text-xl transition mb-4">
+
+            Play
+
+        </button>
+
+        <label
+            for="musicSelect"
+            class="block text-gray-500 mb-2">
+
+            Pilih Lagu
+
+        </label>
+
+        <select
+            id="musicSelect"
+            class="w-full border border-purple-200 rounded-2xl p-3 mb-4 focus:outline-none">
+
+            <option value="assets/music/Mine .mp3">
+                🎀 Mine
+            </option>
+
+            <option value="assets/music/Mood .mp3">
+                ☁️ Mood
+            </option>
+
+            <option value="assets/music/Sweet .mp3">
+                🌷 Sweet
+            </option>
+
+        </select>
+
+
+        <label
+            for="volumeControl"
+            class="block text-gray-500 mt-4 mb-2">
+
+            Volume
+
+        </label>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="100"
+            value="15"
+            class="w-full">
+
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+<script>
+
+const musicBtn = document.getElementById("musicBtn");
+const musicPanel = document.getElementById("musicPanel");
+
+const audio = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("toggleMusic");
+const musicSelect = document.getElementById("musicSelect");
+const volumeControl = document.getElementById("volumeControl");
+
+musicBtn.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+    musicPanel.classList.toggle("hidden");
+
+});
+
+document.addEventListener("click",()=>{
+
+    musicPanel.classList.add("hidden");
+
+});
+
+musicPanel.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+
+});
+
+const savedSong =
+localStorage.getItem("selectedSong")
+|| "assets/music/Mine.mp3";
+
+audio.src = savedSong;
+
+musicSelect.value = savedSong;
+
+audio.volume =
+parseFloat(
+localStorage.getItem("musicVolume")
+|| 0.15
+);
+
+volumeControl.value =
+audio.volume * 100;
+
+volumeControl.addEventListener("input",()=>{
+
+    audio.volume =
+    volumeControl.value / 100;
+
+    localStorage.setItem(
+        "musicVolume",
+        audio.volume
+    );
+
+});
+
+const savedTime =
+localStorage.getItem("musicTime");
+
+audio.addEventListener("loadedmetadata",()=>{
+
+    if(savedTime){
+
+        audio.currentTime =
+        parseFloat(savedTime);
+
+    }
+
+});
+
+setInterval(()=>{
+
+    localStorage.setItem(
+        "musicTime",
+        audio.currentTime
+    );
+
+},1000);
+
+if(
+    localStorage.getItem("musicPlaying")
+    !== "false"
+){
+
+    audio.play().catch(()=>{});
+
+    toggleBtn.innerText="Pause";
+
+}else{
+
+    toggleBtn.innerText="Play";
+
+}
+
+toggleBtn.addEventListener("click",()=>{
+
+    if(audio.paused){
+
+        audio.play();
+
+        toggleBtn.innerText="Pause";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "true"
+        );
+
+    }else{
+
+        audio.pause();
+
+        toggleBtn.innerText="Play";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "false"
+        );
+
+    }
+
+});
+
+musicSelect.addEventListener("change",()=>{
+
+    audio.src =
+    musicSelect.value;
+
+    localStorage.setItem(
+        "selectedSong",
+        musicSelect.value
+    );
+
+    localStorage.setItem(
+        "musicTime",
+        0
+    );
+
+    audio.currentTime = 0;
+
+    audio.play();
+
+    toggleBtn.innerText="Pause";
+
+    localStorage.setItem(
+        "musicPlaying",
+        "true"
+    );
+
+});
+
+document.addEventListener("click",()=>{
+
+    if(
+        audio.paused &&
+        localStorage.getItem("musicPlaying")
+        !== "false"
+    ){
+
+        audio.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+</script>
+</body>
+</html>
