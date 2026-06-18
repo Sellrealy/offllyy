@@ -77,7 +77,7 @@
 </style>
 
 </head>
-<body>
+<body class="overflow-x-hidden">
 <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
 
     <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
@@ -123,8 +123,7 @@
     </div>
 
 </nav>
-<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] flex justify-center items-center p-6 relative overflow-hidden">
-
+<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] flex justify-center items-center p-3 md:p-6 relative overflow-hidden">
 <div class="absolute top-20 left-20 w-32 h-32 bg-purple-200/30 rounded-full blur-3xl floating"></div>
 
 <div class="absolute bottom-20 right-20 w-40 h-40 bg-pink-200/20 rounded-full blur-3xl floating"></div>
@@ -150,22 +149,22 @@
         <img
             src="images/profile.jpg"
             alt="Foto Profil"
-            class="w-40 h-40 rounded-full border-8 border-white shadow-xl profile-img object-cover"
+            class="w-28 h-28 md:w-40 md:h-40 rounded-full border-4 md:border-8 border-white shadow-xl profile-img object-cover"
             style="object-position:center 20%;">
 
     </div>
 
     <div class="text-center mt-3">
 
-        <span class="sparkle text-xl">✨</span>
-        <span class="sparkle text-xl">@Offllyy_</span>
-        <span class="sparkle text-xl">🐈</span>
+        <span class="sparkle text-sm md:text-xl">✨</span>
+        <span class="sparkle text-sm md:text-xl">@Offllyy_</span>
+        <span class="sparkle text-sm md:text-xl">🐈</span>
 
     </div>
 
     <div class="text-center mt-4">
 
-        <h1 class="text-5xl font-serif text-[#705D8A]">
+       <h1 class="text-3xl md:text-5xl font-serif text-[#705D8A] px-4">
             Sely Permata Sari
         </h1>
 
@@ -210,15 +209,15 @@
 
     </div>
 
-    <div class="grid md:grid-cols-2 gap-10 p-10">
+    <div class="grid md:grid-cols-2 gap-6 md:gap-10 p-5 md:p-10">
 
         <div class="flex flex-col justify-center">
 
-            <h2 class="text-4xl font-serif text-[#705D8A] mb-5">
+            <h2 class="text-2xl md:text-4xl font-serif text-[#705D8A] mb-5">
                 My Life Journey 🌷
             </h2>
 
-            <p class="text-gray-600 leading-8">
+           <p class="text-gray-600 leading-7 text-sm md:text-base">
                 A glimpse into my life, filled with memories,
                 friendships, achievements, and simple moments.
                 This garden is where I keep the stories I never
@@ -297,12 +296,11 @@
 
     <div
         id="musicPanel"
-        class="hidden absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-xl border border-purple-100 rounded-3xl shadow-xl p-5">
-
+        class="hidden absolute bottom-16 right-0 w-64 md:w-80">
         <h3 class="text-[#705D8A] font-semibold text-2xl mb-4">
             🐈 Music Player
         </h3>
-
+class="hidden absolute bottom-16 right-0 w-64 md:w-80
         <button
             id="toggleMusic"
             class="w-full bg-[#A18BC4] hover:bg-[#8D7AA8] text-white py-3 rounded-2xl text-xl transition mb-4">
