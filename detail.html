@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detail Song</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+.floating{
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+.vinyl{
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+        <div class="flex justify-between items-center">
+
+            <a href="index.html"
+               class="text-2xl md:text-3xl font-serif text-[#705D8A]">
+
+                🌷 Offllyy_
+
+            </a>
+
+            <a href="index.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🏡 Home
+            </a>
+
+            <a href="about.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                👩‍🎓 About
+            </a>
+
+            <a href="projects.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                💻 Projects
+            </a>
+
+            <a href="guestbook.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🎵 Song
+            </a>
+
+            <a href="login.html"
+            class="bg-[#8D7AA8] text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+                🔒 Admin Login
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] flex items-center justify-center p-10 relative overflow-hidden">
+
+    <div class="absolute top-20 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-3xl floating"></div>
+
+    <div class="absolute bottom-20 right-20 w-52 h-52 bg-pink-200/20 rounded-full blur-3xl floating"></div>
+
+    <div class="max-w-xl w-full relative z-10">
+
+        <div class="bg-white/70 backdrop-blur-xl border border-purple-100 rounded-[40px] shadow-2xl p-8">
+
+            <div id="detailSong">
+
+                <div class="text-center text-[#705D8A]">
+                    Loading...
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import { db } from "./js/firebase-config.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const detailContainer =
+document.getElementById("detailSong");
+
+async function loadDetail() {
+
+    if (!id) {
+
+        detailContainer.innerHTML = `
+            <div class="text-center text-red-500">
+                ID tidak ditemukan
+            </div>
+        `;
+
+        return;
+    }
+
+    try {
+
+        const snap = await getDoc(
+            doc(db, "guestbooks", id)
+        );
+
+        if (!snap.exists()) {
+
+            detailContainer.innerHTML = `
+                <div class="text-center text-red-500">
+                    Data tidak ditemukan
+                </div>
+            `;
+
+            return;
+        }
+
+        const song = snap.data();
+
+        detailContainer.innerHTML = `
+
+        <div class="text-center">
+
+            <div class="relative w-64 h-64 mx-auto">
+
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-[#A98DDA] to-[#705D8A] vinyl"></div>
+
+                <img
+                    src="${song.cover}"
+                    class="absolute inset-8 w-48 h-48 rounded-full object-cover border-4 border-white">
+
+            </div>
+
+            <h1 class="mt-6 text-3xl font-serif text-[#705D8A]">
+
+                ${song.lagu}
+
+            </h1>
+
+            <p class="text-gray-500 mt-2">
+
+                🎤 ${song.artist}
+
+            </p>
+
+        </div>
+
+        <div class="mt-6 bg-white/80 p-4 rounded-2xl">
+
+            <audio controls class="w-full">
+
+                <source src="${song.preview}">
+
+            </audio>
+
+        </div>
+
+        <div class="mt-4 bg-white/80 p-5 rounded-2xl">
+
+            <p class="text-gray-700 whitespace-pre-line">
+
+                ${song.pesan}
+
+            </p>
+
+        </div>
+
+        <div class="mt-4 text-center text-gray-600">
+
+            👤 ${song.nama}
+
+        </div>
+
+        <div class="mt-6 text-center">
+
+            <a
+                href="dashboard.html"
+                class="bg-[#8D7AA8] text-white px-6 py-3 rounded-2xl inline-block">
+
+                ← Back
+
+            </a>
+
+        </div>
+
+        `;
+
+    } catch(err) {
+
+        console.error(err);
+
+        detailContainer.innerHTML = `
+            <div class="text-center text-red-500">
+                Gagal mengambil data
+            </div>
+        `;
+    }
+
+}
+
+loadDetail();
+
+</script>
+
+</body>
+</html>

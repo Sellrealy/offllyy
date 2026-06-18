@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send A Song</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+.floating{
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+.glass-card{
+    background: rgba(255,255,255,.7);
+
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.input-soft{
+    transition:.3s;
+}
+
+.input-soft:focus{
+    outline:none;
+    border-color:#CDB3E8;
+    box-shadow:0 0 20px rgba(205,179,232,.3);
+}
+
+.btn-send:hover{
+    transform:translateY(-3px);
+}
+</style>
+
+</head>
+
+<body>
+<nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <a href="index.html"
+               class="text-2xl md:text-3xl font-serif text-[#705D8A] hover:opacity-80 transition">
+                🌷 Offllyy_
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-2">
+
+            <a href="index.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🏡 Home
+            </a>
+
+            <a href="about.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                👩‍🎓 About
+            </a>
+
+            <a href="projects.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                💻 Projects
+            </a>
+
+            <a href="guestbook.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🎵 Song
+            </a>
+
+            <a href="login.html"
+            class="bg-[#8D7AA8] text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+                🔒 Admin Login
+            </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] flex justify-center items-center p-6 relative overflow-hidden">
+
+    <div class="absolute top-20 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-3xl floating"></div>
+    <div class="absolute bottom-20 right-20 w-52 h-52 bg-pink-200/20 rounded-full blur-3xl floating"></div>
+
+    <div class="w-full max-w-4xl bg-white/70 glass-card border border-purple-100 rounded-[35px] shadow-2xl p-8 relative z-10">
+
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-serif text-[#705D8A]">🎵 Send A Song</h1>
+            <p class="text-gray-500 italic mt-3">share a song and leave a little message ☁️</p>
+        </div>
+
+        <!-- FORM -->
+        <form id="songForm">
+
+            <input
+                type="text"
+                name="nama"
+                placeholder="Your name 🌷"
+                class="w-full mb-4 p-4 rounded-2xl border border-purple-100 bg-white/70 input-soft"
+                required>
+
+            <input type="hidden" name="lagu" id="lagu">
+            <input type="hidden" name="artist" id="artist">
+            <input type="hidden" name="cover" id="cover">
+            <input type="hidden" name="preview" id="preview">
+
+            <input
+                id="search"
+                type="text"
+                placeholder="Search your favorite song 🎧"
+                oninput="searchSong()"
+                class="w-full p-4 rounded-2xl border border-purple-100 bg-white/70 input-soft mb-2">
+
+            <div id="dropdown" class="bg-white/90 rounded-2xl shadow mb-4 overflow-hidden"></div>
+
+            <div id="selectedSong" class="mb-6"></div>
+
+            <textarea
+                name="pesan"
+                rows="5"
+                placeholder="Write something sweet... 💌"
+                class="w-full mb-6 p-4 rounded-2xl border border-purple-100 bg-white/70 input-soft"
+                required></textarea>
+
+            <button
+                type="submit"
+                class="btn-send bg-[#8D7AA8] hover:bg-[#78649A] text-white px-8 py-3 rounded-2xl shadow-lg transition">
+
+                Send Message 💜
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+async function searchSong(){
+
+    let q = document.getElementById('search').value;
+
+    if(q.length < 2){
+        document.getElementById('dropdown').innerHTML='';
+        return;
+    }
+
+    const res = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(q)}&entity=song&limit=8`);
+    const data = await res.json();
+
+    let html='';
+
+    data.results.forEach(song => {
+
+        html += `
+        <div class="p-4 cursor-pointer border-b hover:bg-purple-50 transition"
+            onclick="selectSong(
+                \`${song.trackName.replace(/`/g,"\\`")}\`,
+                \`${song.artistName.replace(/`/g,"\\`")}\`,
+                '${song.artworkUrl100}',
+                '${song.previewUrl}'
+            )">
+
+            <div class="flex items-center gap-3">
+
+                <img src="${song.artworkUrl100}" class="w-12 h-12 rounded-lg">
+
+                <div>
+                    <div class="font-medium text-[#705D8A]">${song.trackName}</div>
+                    <small class="text-gray-500">${song.artistName}</small>
+                </div>
+
+            </div>
+        </div>`;
+    });
+
+    document.getElementById('dropdown').innerHTML = html;
+}
+
+function selectSong(nama, artist, img, preview){
+
+    document.getElementById('lagu').value = nama;
+    document.getElementById('artist').value = artist;
+    document.getElementById('cover').value = img;
+    document.getElementById('preview').value = preview;
+
+    document.getElementById('dropdown').innerHTML='';
+
+    document.getElementById('selectedSong').innerHTML = `
+        <div class="bg-white/90 border border-purple-100 p-5 rounded-3xl shadow">
+
+            <div class="flex flex-col md:flex-row gap-5 items-center">
+
+                <img src="${img}" class="w-28 h-28 rounded-2xl shadow">
+
+                <div class="flex-1">
+
+                    <h3 class="text-2xl font-semibold text-[#705D8A]">${nama}</h3>
+                    <p class="text-gray-500 mb-4">${artist}</p>
+
+                    <audio controls class="w-full">
+                        <source src="${preview}">
+                    </audio>
+
+                </div>
+
+            </div>
+        </div>`;
+}
+</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDJ06YRng4C7VROVFojUfXkcxrSZHEvl_0",
+  authDomain: "songfess-1e29b.firebaseapp.com",
+  projectId: "songfess-1e29b",
+  storageBucket: "songfess-1e29b.firebasestorage.app",
+  messagingSenderId: "177455074643",
+  appId: "1:177455074643:web:f94174d019776d429e65a6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.getElementById("songForm").addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+        await addDoc(collection(db, "guestbooks"), {
+
+            nama: document.querySelector('[name="nama"]').value,
+            lagu: document.getElementById("lagu").value,
+            artist: document.getElementById("artist").value,
+            cover: document.getElementById("cover").value,
+            preview: document.getElementById("preview").value,
+            pesan: document.querySelector('[name="pesan"]').value,
+            created_at: serverTimestamp()
+
+        });
+
+        alert("Song berhasil dikirim 💜");
+
+        document.getElementById("songForm").reset();
+
+        document.getElementById("selectedSong").innerHTML = "";
+
+    } catch(err) {
+
+        console.error(err);
+        alert("Gagal mengirim");
+
+    }
+
+});
+
+</script>
+
+<!-- MUSIC WIDGET -->
+
+<div class="fixed bottom-5 right-5 z-50">
+
+    <button
+        id="musicBtn"
+        class="w-14 h-14 rounded-full bg-[#8D7AA8] text-white shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition">
+
+        🎵
+
+    </button>
+
+    <div
+        id="musicPanel"
+        class="hidden absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-xl border border-purple-100 rounded-3xl shadow-xl p-5">
+
+        <h3 class="text-[#705D8A] font-semibold text-2xl mb-4">
+            🐈 Music Player
+        </h3>
+
+        <button
+            id="toggleMusic"
+            class="w-full bg-[#A18BC4] hover:bg-[#8D7AA8] text-white py-3 rounded-2xl text-xl transition mb-4">
+
+            Play
+
+        </button>
+
+        <label
+            for="musicSelect"
+            class="block text-gray-500 mb-2">
+
+            Pilih Lagu
+
+        </label>
+
+        <select
+            id="musicSelect"
+            class="w-full border border-purple-200 rounded-2xl p-3 mb-4 focus:outline-none">
+
+            <option value="assets/music/Mine .mp3">
+                🎀 Mine
+            </option>
+
+            <option value="assets/music/Mood .mp3">
+                ☁️ Mood
+            </option>
+
+            <option value="assets/music/Sweet .mp3">
+                🌷 Sweet
+            </option>
+
+        </select>
+
+
+        <label
+            for="volumeControl"
+            class="block text-gray-500 mt-4 mb-2">
+
+            Volume
+
+        </label>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="100"
+            value="15"
+            class="w-full">
+
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+<script>
+
+const musicBtn = document.getElementById("musicBtn");
+const musicPanel = document.getElementById("musicPanel");
+
+const audio = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("toggleMusic");
+const musicSelect = document.getElementById("musicSelect");
+const volumeControl = document.getElementById("volumeControl");
+
+musicBtn.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+    musicPanel.classList.toggle("hidden");
+
+});
+
+document.addEventListener("click",()=>{
+
+    musicPanel.classList.add("hidden");
+
+});
+
+musicPanel.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+
+});
+
+const savedSong =
+localStorage.getItem("selectedSong")
+|| "assets/music/Mine.mp3";
+
+audio.src = savedSong;
+
+musicSelect.value = savedSong;
+
+audio.volume =
+parseFloat(
+localStorage.getItem("musicVolume")
+|| 0.15
+);
+
+volumeControl.value =
+audio.volume * 100;
+
+volumeControl.addEventListener("input",()=>{
+
+    audio.volume =
+    volumeControl.value / 100;
+
+    localStorage.setItem(
+        "musicVolume",
+        audio.volume
+    );
+
+});
+
+const savedTime =
+localStorage.getItem("musicTime");
+
+audio.addEventListener("loadedmetadata",()=>{
+
+    if(savedTime){
+
+        audio.currentTime =
+        parseFloat(savedTime);
+
+    }
+
+});
+
+setInterval(()=>{
+
+    localStorage.setItem(
+        "musicTime",
+        audio.currentTime
+    );
+
+},1000);
+
+if(
+    localStorage.getItem("musicPlaying")
+    !== "false"
+){
+
+    audio.play().catch(()=>{});
+
+    toggleBtn.innerText="Pause";
+
+}else{
+
+    toggleBtn.innerText="Play";
+
+}
+
+toggleBtn.addEventListener("click",()=>{
+
+    if(audio.paused){
+
+        audio.play();
+
+        toggleBtn.innerText="Pause";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "true"
+        );
+
+    }else{
+
+        audio.pause();
+
+        toggleBtn.innerText="Play";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "false"
+        );
+
+    }
+
+});
+
+musicSelect.addEventListener("change",()=>{
+
+    audio.src =
+    musicSelect.value;
+
+    localStorage.setItem(
+        "selectedSong",
+        musicSelect.value
+    );
+
+    localStorage.setItem(
+        "musicTime",
+        0
+    );
+
+    audio.currentTime = 0;
+
+    audio.play();
+
+    toggleBtn.innerText="Pause";
+
+    localStorage.setItem(
+        "musicPlaying",
+        "true"
+    );
+
+});
+
+document.addEventListener("click",()=>{
+
+    if(
+        audio.paused &&
+        localStorage.getItem("musicPlaying")
+        !== "false"
+    ){
+
+        audio.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+</script>
+</body>
+</html>

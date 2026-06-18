@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+<nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <a href="index.html"
+               class="text-2xl md:text-3xl font-serif text-[#705D8A] hover:opacity-80 transition">
+                🌷 Offllyy_
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-2">
+
+            <a href="index.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🏡 Home
+            </a>
+
+            <a href="about.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                👩‍🎓 About
+            </a>
+
+            <a href="projects.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                💻 Projects
+            </a>
+
+            <a href="guestbook.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🎵 Song
+            </a>
+
+            <a href="login.html"
+            class="bg-[#8D7AA8] text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+                🔒 Admin Login
+            </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] min-h-screen flex items-center justify-center p-6">
+
+<div class="w-full max-w-md bg-white/70 backdrop-blur-xl border border-purple-100 p-8 rounded-[35px] shadow-2xl">
+
+    <div class="text-center mb-8">
+
+        <div class="text-5xl mb-3">🌙</div>
+
+        <h1 class="text-4xl font-serif text-[#705D8A]">
+            Admin Login
+        </h1>
+
+        <p class="text-gray-500 mt-3">
+            Login untuk melihat Songfess
+        </p>
+
+    </div>
+
+    <input
+        id="email"
+        type="email"
+        placeholder="Email"
+        class="w-full mb-4 p-4 border rounded-2xl">
+
+    <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        class="w-full mb-5 p-4 border rounded-2xl">
+
+    <button
+        onclick="login()"
+        class="w-full bg-[#8D7AA8] hover:bg-[#78649A] text-white p-4 rounded-2xl transition">
+
+        Login
+
+    </button>
+
+    <a
+        href="index.html"
+        class="block text-center mt-4 text-[#705D8A]">
+
+        ← Kembali ke Home
+
+    </a>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { auth } from "./js/firebase-config.js";
+
+import {
+    signInWithEmailAndPassword,
+    setPersistence,
+    browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+window.login = async () => {
+
+    const email =
+    document.getElementById("email").value.trim();
+
+    const password =
+    document.getElementById("password").value;
+
+    try {
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        alert("✅ Login berhasil");
+
+        window.location.href =
+        "dashboard.html";
+
+    } catch(error) {
+
+        alert("⚠️ Anda tidak terdaftar sebagai admin!");
+
+    }
+
+};
+
+
+
+</script>
+
+<!-- MUSIC WIDGET -->
+
+<div class="fixed bottom-5 right-5 z-50">
+
+    <button
+        id="musicBtn"
+        class="w-14 h-14 rounded-full bg-[#8D7AA8] text-white shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition">
+
+        🎵
+
+    </button>
+
+    <div
+        id="musicPanel"
+        class="hidden absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-xl border border-purple-100 rounded-3xl shadow-xl p-5">
+
+        <h3 class="text-[#705D8A] font-semibold text-2xl mb-4">
+            🐈 Music Player
+        </h3>
+
+        <button
+            id="toggleMusic"
+            class="w-full bg-[#A18BC4] hover:bg-[#8D7AA8] text-white py-3 rounded-2xl text-xl transition mb-4">
+
+            Play
+
+        </button>
+
+        <label
+            for="musicSelect"
+            class="block text-gray-500 mb-2">
+
+            Pilih Lagu
+
+        </label>
+
+        <select
+            id="musicSelect"
+            class="w-full border border-purple-200 rounded-2xl p-3 mb-4 focus:outline-none">
+
+            <option value="assets/music/Mine .mp3">
+                🎀 Mine
+            </option>
+
+            <option value="assets/music/Mood .mp3">
+                ☁️ Mood
+            </option>
+
+            <option value="assets/music/Sweet .mp3">
+                🌷 Sweet
+            </option>
+
+        </select>
+
+
+        <label
+            for="volumeControl"
+            class="block text-gray-500 mt-4 mb-2">
+
+            Volume
+
+        </label>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="100"
+            value="15"
+            class="w-full">
+
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+<script>
+
+const musicBtn = document.getElementById("musicBtn");
+const musicPanel = document.getElementById("musicPanel");
+
+const audio = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("toggleMusic");
+const musicSelect = document.getElementById("musicSelect");
+const volumeControl = document.getElementById("volumeControl");
+
+musicBtn.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+    musicPanel.classList.toggle("hidden");
+
+});
+
+document.addEventListener("click",()=>{
+
+    musicPanel.classList.add("hidden");
+
+});
+
+musicPanel.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+
+});
+
+const savedSong =
+localStorage.getItem("selectedSong")
+|| "assets/music/Mine.mp3";
+
+audio.src = savedSong;
+
+musicSelect.value = savedSong;
+
+audio.volume =
+parseFloat(
+localStorage.getItem("musicVolume")
+|| 0.15
+);
+
+volumeControl.value =
+audio.volume * 100;
+
+volumeControl.addEventListener("input",()=>{
+
+    audio.volume =
+    volumeControl.value / 100;
+
+    localStorage.setItem(
+        "musicVolume",
+        audio.volume
+    );
+
+});
+
+const savedTime =
+localStorage.getItem("musicTime");
+
+audio.addEventListener("loadedmetadata",()=>{
+
+    if(savedTime){
+
+        audio.currentTime =
+        parseFloat(savedTime);
+
+    }
+
+});
+
+setInterval(()=>{
+
+    localStorage.setItem(
+        "musicTime",
+        audio.currentTime
+    );
+
+},1000);
+
+if(
+    localStorage.getItem("musicPlaying")
+    !== "false"
+){
+
+    audio.play().catch(()=>{});
+
+    toggleBtn.innerText="Pause";
+
+}else{
+
+    toggleBtn.innerText="Play";
+
+}
+
+toggleBtn.addEventListener("click",()=>{
+
+    if(audio.paused){
+
+        audio.play();
+
+        toggleBtn.innerText="Pause";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "true"
+        );
+
+    }else{
+
+        audio.pause();
+
+        toggleBtn.innerText="Play";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "false"
+        );
+
+    }
+
+});
+
+musicSelect.addEventListener("change",()=>{
+
+    audio.src =
+    musicSelect.value;
+
+    localStorage.setItem(
+        "selectedSong",
+        musicSelect.value
+    );
+
+    localStorage.setItem(
+        "musicTime",
+        0
+    );
+
+    audio.currentTime = 0;
+
+    audio.play();
+
+    toggleBtn.innerText="Pause";
+
+    localStorage.setItem(
+        "musicPlaying",
+        "true"
+    );
+
+});
+
+document.addEventListener("click",()=>{
+
+    if(
+        audio.paused &&
+        localStorage.getItem("musicPlaying")
+        !== "false"
+    ){
+
+        audio.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+</script>
+</body>

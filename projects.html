@@ -1,0 +1,520 @@
+<?php include 'includes/navbar.php'; ?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Projects</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+.project-card{
+    transition: all .35s ease;
+}
+
+.project-card:hover{
+    transform: translateY(-10px);
+}
+
+.floating{
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+</style>
+
+</head>
+<body>
+    
+<nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-purple-100 shadow-sm">
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-4">
+
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <a href="index.html"
+               class="text-2xl md:text-3xl font-serif text-[#705D8A] hover:opacity-80 transition">
+                🌷 Offllyy_
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-2">
+
+            <a href="index.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🏡 Home
+            </a>
+
+            <a href="about.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                👩‍🎓 About
+            </a>
+
+            <a href="projects.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                💻 Projects
+            </a>
+
+            <a href="guestbook.html"
+            class="px-3 md:px-4 py-2 rounded-xl text-gray-600 hover:bg-[#F3E9FF] transition">
+                🎵 Song
+            </a>
+
+            <a href="login.html"
+            class="bg-[#8D7AA8] text-white px-4 py-2 rounded-xl hover:opacity-90 transition">
+                🔒 Admin Login
+            </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="min-h-screen bg-gradient-to-br from-[#F6F0FF] via-[#FFF9FF] to-[#E8DDF8] p-10 relative overflow-hidden">
+
+<div class="absolute top-20 left-20 w-40 h-40 bg-purple-200/30 rounded-full blur-3xl floating"></div>
+<div class="absolute bottom-20 right-20 w-52 h-52 bg-pink-200/20 rounded-full blur-3xl floating"></div>
+
+<div class="max-w-6xl mx-auto relative z-10">
+
+<div class="text-center mb-14">
+    <h1 class="text-5xl md:text-6xl font-serif text-[#705D8A]">
+        🌷 My Projects
+    </h1>
+
+    <p class="mt-4 text-gray-500 italic">
+        little things i've created along the way ☁️
+    </p>
+</div>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<!-- PROJECT 1 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/WEBSITE SEDERHANA PORTOFOLIO.jpg"
+alt="WEB SEDERHANA PORTFOLIO"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🌷 Website Biodata
+</h3>
+
+<p class="text-gray-600 mt-3">
+Website sederhana yang dibuat untuk menampilkan profil pribadi,
+skill, dan pengalaman dalam bentuk portfolio online.
+</p>
+
+</div>
+
+<!-- PROJECT 2 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/WEBSITE PORTOFOLIO .jpg"
+alt="WEB PORTFOLIO"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🎀 Website Portfolio
+</h3>
+
+<p class="text-gray-600 mt-3">
+Website portfolio modern untuk memperkenalkan diri,
+menampilkan karya dan media sosial.
+</p>
+
+</div>
+
+<!-- PROJECT 3 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/PROJECT SENDIRI UANGKAS.jpg"
+alt="PROJECT UANG KAS"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+💰 Sistem Uang Kas
+</h3>
+
+<p class="text-gray-600 mt-3">
+Sistem pencatatan pembayaran kas siswa dengan fitur input data,
+laporan dan total pembayaran.
+</p>
+
+</div>
+
+<!-- PROJECT 4 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/NILAI SISWA APK.png"
+alt="NILAI SISWA APK"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+📊 Aplikasi Nilai Siswa
+</h3>
+
+<p class="text-gray-600 mt-3">
+Aplikasi mobile untuk mengelola data siswa dan nilai.
+</p>
+
+</div>
+
+<!-- PROJECT 5 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/JAVA DATA OBAT.jpg"
+alt="JAVA DATA OBAT"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+💊 Data Obat
+</h3>
+
+<p class="text-gray-600 mt-3">
+Aplikasi desktop untuk mengelola data obat dan stok.
+</p>
+
+</div>
+
+<!-- PROJECT 6 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/CRUD PHP.jpg"
+alt="CRUD PHP"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🖥️ Dashboard CRUD Data Siswa
+</h3>
+
+<p class="text-gray-600 mt-3">
+Dashboard sekolah dengan fitur CRUD data siswa.
+</p>
+
+</div>
+
+<!-- PROJECT 7 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/INPUT BANK.jpg"
+alt="INPUT BANK"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🏦 Sistem Data Bank
+</h3>
+
+<p class="text-gray-600 mt-3">
+Aplikasi pengelolaan data nasabah dan rekening.
+</p>
+
+</div>
+
+<!-- PROJECT 8 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/DATA SISWA & GURU CRUD LARAVEL.jpg"
+alt="DATA SISWA & GURU CRUD LARAVEL"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🎓 Data Siswa & Guru
+</h3>
+
+<p class="text-gray-600 mt-3">
+Sistem informasi sekolah berbasis Laravel.
+</p>
+
+</div>
+
+<!-- PROJECT 9 -->
+<div class="project-card bg-white/70 backdrop-blur-lg border border-purple-100 p-5 rounded-[30px] shadow-xl">
+
+<img src="project/GAMES.jpg"
+alt="GAMES"
+class="w-full h-48 object-cover rounded-2xl">
+
+<h3 class="text-2xl font-semibold text-[#705D8A] mt-4">
+🎮 Lucid Dream
+</h3>
+
+<p class="text-gray-600 mt-3">
+Game platformer sederhana dengan tema petualangan.
+</p>
+
+</div>
+
+</div>
+
+<div class="mt-16 text-center">
+
+<div class="inline-block bg-white/70 backdrop-blur-lg border border-purple-100 px-8 py-4 rounded-2xl shadow">
+
+<p class="italic text-gray-500">
+"Every project starts as a tiny idea." ✨
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MUSIC WIDGET -->
+
+<div class="fixed bottom-5 right-5 z-50">
+
+    <button
+        id="musicBtn"
+        class="w-14 h-14 rounded-full bg-[#8D7AA8] text-white shadow-xl flex items-center justify-center text-2xl hover:scale-110 transition">
+
+        🎵
+
+    </button>
+
+    <div
+        id="musicPanel"
+        class="hidden absolute bottom-16 right-0 w-80 bg-white/95 backdrop-blur-xl border border-purple-100 rounded-3xl shadow-xl p-5">
+
+        <h3 class="text-[#705D8A] font-semibold text-2xl mb-4">
+            🐈 Music Player
+        </h3>
+
+        <button
+            id="toggleMusic"
+            class="w-full bg-[#A18BC4] hover:bg-[#8D7AA8] text-white py-3 rounded-2xl text-xl transition mb-4">
+
+            Play
+
+        </button>
+
+        <label
+            for="musicSelect"
+            class="block text-gray-500 mb-2">
+
+            Pilih Lagu
+
+        </label>
+
+        <select
+            id="musicSelect"
+            class="w-full border border-purple-200 rounded-2xl p-3 mb-4 focus:outline-none">
+
+            <option value="assets/music/Mine .mp3">
+                🎀 Mine
+            </option>
+
+            <option value="assets/music/Mood .mp3">
+                ☁️ Mood
+            </option>
+
+            <option value="assets/music/Sweet .mp3">
+                🌷 Sweet
+            </option>
+
+        </select>
+
+
+        <label
+            for="volumeControl"
+            class="block text-gray-500 mt-4 mb-2">
+
+            Volume
+
+        </label>
+
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="100"
+            value="15"
+            class="w-full">
+
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+<script>
+
+const musicBtn = document.getElementById("musicBtn");
+const musicPanel = document.getElementById("musicPanel");
+
+const audio = document.getElementById("bgMusic");
+const toggleBtn = document.getElementById("toggleMusic");
+const musicSelect = document.getElementById("musicSelect");
+const volumeControl = document.getElementById("volumeControl");
+
+musicBtn.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+    musicPanel.classList.toggle("hidden");
+
+});
+
+document.addEventListener("click",()=>{
+
+    musicPanel.classList.add("hidden");
+
+});
+
+musicPanel.addEventListener("click",(e)=>{
+
+    e.stopPropagation();
+
+});
+
+const savedSong =
+localStorage.getItem("selectedSong")
+|| "assets/music/Mine.mp3";
+
+audio.src = savedSong;
+
+musicSelect.value = savedSong;
+
+audio.volume =
+parseFloat(
+localStorage.getItem("musicVolume")
+|| 0.15
+);
+
+volumeControl.value =
+audio.volume * 100;
+
+volumeControl.addEventListener("input",()=>{
+
+    audio.volume =
+    volumeControl.value / 100;
+
+    localStorage.setItem(
+        "musicVolume",
+        audio.volume
+    );
+
+});
+
+const savedTime =
+localStorage.getItem("musicTime");
+
+audio.addEventListener("loadedmetadata",()=>{
+
+    if(savedTime){
+
+        audio.currentTime =
+        parseFloat(savedTime);
+
+    }
+
+});
+
+setInterval(()=>{
+
+    localStorage.setItem(
+        "musicTime",
+        audio.currentTime
+    );
+
+},1000);
+
+if(
+    localStorage.getItem("musicPlaying")
+    !== "false"
+){
+
+    audio.play().catch(()=>{});
+
+    toggleBtn.innerText="Pause";
+
+}else{
+
+    toggleBtn.innerText="Play";
+
+}
+
+toggleBtn.addEventListener("click",()=>{
+
+    if(audio.paused){
+
+        audio.play();
+
+        toggleBtn.innerText="Pause";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "true"
+        );
+
+    }else{
+
+        audio.pause();
+
+        toggleBtn.innerText="Play";
+
+        localStorage.setItem(
+            "musicPlaying",
+            "false"
+        );
+
+    }
+
+});
+
+musicSelect.addEventListener("change",()=>{
+
+    audio.src =
+    musicSelect.value;
+
+    localStorage.setItem(
+        "selectedSong",
+        musicSelect.value
+    );
+
+    localStorage.setItem(
+        "musicTime",
+        0
+    );
+
+    audio.currentTime = 0;
+
+    audio.play();
+
+    toggleBtn.innerText="Pause";
+
+    localStorage.setItem(
+        "musicPlaying",
+        "true"
+    );
+
+});
+
+document.addEventListener("click",()=>{
+
+    if(
+        audio.paused &&
+        localStorage.getItem("musicPlaying")
+        !== "false"
+    ){
+
+        audio.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+</script>
+</body>
+</html>
